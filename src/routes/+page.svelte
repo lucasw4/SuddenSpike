@@ -3,6 +3,7 @@
 	import axios from 'axios';
 
 	import ItemsTable from '$lib/components/ItemsTable.svelte';
+	import { initPrices, updatePrices } from '$lib/supabaseServices';
 
 	import Home from 'lucide-svelte/icons/home';
 	import ListFilter from 'lucide-svelte/icons/list-filter';
@@ -153,7 +154,7 @@
 						<Tabs.Trigger value="archived" class="hidden sm:flex">Archived</Tabs.Trigger>
 					</Tabs.List>
 					<div class="ml-auto flex items-center gap-2">
-						<Button variant="outline" on:click={fetchPrices}><RotateCw /></Button>
+						<Button variant="outline" on:click={updatePrices}><RotateCw /></Button>
 					</div>
 				</div>
 				<Tabs.Content value="all">
@@ -164,11 +165,11 @@
 						</Card.Header>
 						<Card.Content>
 							<!-- <ItemsTable {items} /> -->
-							{#each items as item (item.id)}
+							<!-- {#each items as item (item.id)}
 								<p>
 									Item ID: {item.id}, Latest Price: {item.latestPrice}, Price 5 mins ago: {item.oldPrice}
 								</p>
-							{/each}
+							{/each} -->
 						</Card.Content>
 					</Card.Root>
 				</Tabs.Content>
